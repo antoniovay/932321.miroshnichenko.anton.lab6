@@ -137,3 +137,71 @@ footer { text-align: center; }
     .add_padding { padding-left: 0; }
     aside { float: none; }
 }
+
+
+/* Генератор цитат */
+
+#quotes {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#quotes h2 {
+    margin-bottom: 25px;
+}
+
+.quote-card {
+    max-width: 700px;
+    margin: 25px auto 0;
+    padding: 30px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #222;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+#quote-text {
+    font-size: 22px;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+#quote-author {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+#quote-lang {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #aaa;
+    font-size: 16px;
+}
+
+#get-quote {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#get-quote:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+@media (max-width: 600px) {
+    .quote-card {
+        padding: 20px;
+    }
+
+    #quote-text {
+        font-size: 18px;
+    }
+
+    #get-quote {
+        margin: 10px 0 0;
+    }
+}

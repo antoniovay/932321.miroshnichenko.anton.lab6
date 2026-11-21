@@ -47,9 +47,9 @@ app.get('/api/quote', (req, res) => {
 
     let filteredQuotes = quotes;
 
-    if (lang === 'en') {
-        filteredQuotes = quotes.filter(quote => quote.lang === 'en');
-    }
+    if (lang === 'en' || lang === 'ru') {
+    filteredQuotes = quotes.filter(quote => quote.lang === lang);
+}
 
     if (filteredQuotes.length === 0) {
         return res.status(500).json({

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>О себе</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#222222">
     <style>
         .skills-list { list-style-type: square; padding-left: 50px; }
         .projects-list { list-style-type: upper-roman; padding-left: 50px; }
@@ -97,6 +99,28 @@
             </article>
         </div>
         <p id="palette-message" class="palette-message" aria-live="polite"></p>
+    </section>
+
+    <section id="quotes" class="parallax bg_img">
+        <h2>Генератор цитат</h2>
+
+        <div class="palette-controls">
+            <label for="quote-lang">Язык цитаты:</label>
+            <select id="quote-lang">
+                <option value="all">Все языки</option>
+                <option value="en">English</option>
+                <option value="ru">Русский</option>
+            </select>
+
+            <button id="get-quote" type="button">Получить цитату</button>
+        </div>
+
+        <div class="quote-card">
+            <p id="quote-text" aria-live="polite">
+                Нажми кнопку, чтобы получить цитату
+            </p>
+            <p id="quote-author"></p>
+        </div>
     </section>
 
     <aside class="sidebar parallax bg_img">

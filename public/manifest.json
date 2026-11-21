@@ -1,0 +1,10 @@
+{
+    "name": "Портфолио Антона",
+    "short_name": "Портфолио",
+    "description": "Портфолио дизайнера и визуализатора с генератором цитат",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#222222"
+}

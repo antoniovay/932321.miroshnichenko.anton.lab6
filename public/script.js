@@ -174,3 +174,56 @@ document.addEventListener("DOMContentLoaded", function () {
 
     restorePalette();
 });
+
+// Генератор цитат
+document.addEventListener("DOMContentLoaded", function () {
+    const quoteButton = document.getElementById("get-quote");
+    const quoteLang = document.getElementById("quote-lang");
+    const quoteText = document.getElementById("quote-text");
+    const quoteAuthor = document.getElementById("quote-author");
+
+    if (!quoteButton || !quoteLang || !quoteText || !quoteAuthor) {
+        console.error("Элементы генератора цитат не найдены.");
+        return;
+    }
+
+    quoteButton.addEventListener("click", async function () {
+        quoteButton.disabled = true;
+        quoteText.textContent = "Загружаем цитату...";
+        quoteAuthor.textContent = "";
+
+        try {
+            const lang = quoteLang.value;
+            const url = lang === "all" ? "/api/quote" : `/api/quote?lang=${lang}`;           
+
+            const response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error("Не удалось получить цитату");
+            }
+
+            const quote = await response.json();
+
+            quoteText.textContent = `«${quote.text}»`;
+            quoteAuthor.textContent = `— ${quote.author}`;
+        } catch (error) {
+            quoteText.textContent = "Не удалось загрузить цитату. Попробуй ещё раз.";
+            console.error(error);
+        } finally {
+            quoteButton.disabled = false;
+        }
+    });
+});
+
+// Регистрация Service Worker
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+                console.log('Service Worker зарегистрирован:', registration.scope);
+            })
+            .catch(error => {
+                console.error('Ошибка регистрации Service Worker:', error);
+            });
+    });
+}
